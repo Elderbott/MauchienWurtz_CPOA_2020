@@ -1,4 +1,4 @@
-package bdd.connexion;
+package dao.connexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

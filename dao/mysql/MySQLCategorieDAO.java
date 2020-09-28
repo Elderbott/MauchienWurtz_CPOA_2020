@@ -1,4 +1,4 @@
-package DAO;
+package dao.mysql;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,8 +6,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import bdd.connexion.Connexion;
 import bdd.table.Categorie;
+import dao.connexion.Connexion;
+import dao.interfaces.CategorieDAO;
 
 public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 	
@@ -35,9 +36,9 @@ public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 			Statement requete = Connexion();
 			ResultSet res = requete.executeQuery("SELECT * FROM Categorie WHERE id_categorie = "+id);
 			while (res.next()) {
-		        Cat.setId_categ(res.getInt("id_categorie"));
-		        Cat.setTitre_categ(res.getString("titre"));
-		        Cat.setVisuel_categ(res.getString("visuel"));
+		        Cat.setId(res.getInt("id_categorie"));
+		        Cat.setTitre(res.getString("titre"));
+		        Cat.setVisuel(res.getString("visuel"));
 			}
 		}catch(SQLException sqle) {
 			System.out.println("Pb select" + sqle.getMessage());
@@ -50,7 +51,7 @@ public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 		boolean verif = false;
 		try {
 			Statement requete = Connexion();
-			requete.executeUpdate("INSERT INTO Categorie (titre, visuel) VALUES ('"+objet.getTitre_categ()+"','" +objet.getVisuel_categ()+"')");
+			requete.executeUpdate("INSERT INTO Categorie (titre, visuel) VALUES ('"+objet.getTitre()+"','" +objet.getVisuel()+"')");
 			verif = true;
 			 } catch (SQLException sqle) {
 			System.out.println("Pb select" + sqle.getMessage());
@@ -63,7 +64,7 @@ public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 		boolean verif = false;
 		try {
 			Statement requete = Connexion();
-			requete.executeUpdate("UPDATE Categorie SET titre = '"+objet.getTitre_categ()+"', visuel ='"+objet.getVisuel_categ()+"'WHERE id_categorie ="+objet.getId_categ());
+			requete.executeUpdate("UPDATE Categorie SET titre = '"+objet.getTitre()+"', visuel ='"+objet.getVisuel()+"'WHERE id_categorie ="+objet.getId());
 			verif = true;
 			 } catch (SQLException sqle) {
 			System.out.println("Pb select" + sqle.getMessage());
@@ -76,7 +77,7 @@ public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 		boolean verif = false;
 		try {
 			Statement requete = Connexion();
-			requete.executeUpdate("DELETE FROM Categorie WHERE id_categorie = "+objet.getId_categ());
+			requete.executeUpdate("DELETE FROM Categorie WHERE id_categorie = "+objet.getId());
 			verif = true;
 			 } catch (SQLException sqle) {
 			System.out.println("Pb select" + sqle.getMessage());
@@ -91,9 +92,9 @@ public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 			Statement requete = Connexion();
 			ResultSet res = requete.executeQuery("SELECT * FROM Categorie WHERE titre = '"+Titre+"'");
 			while (res.next()) {
-		        Cat.setId_categ(res.getInt("id_categorie"));
-		        Cat.setTitre_categ(res.getString("titre"));
-		        Cat.setVisuel_categ(res.getString("visuel"));
+		        Cat.setId(res.getInt("id_categorie"));
+		        Cat.setTitre(res.getString("titre"));
+		        Cat.setVisuel(res.getString("visuel"));
 			}
 		}catch(SQLException sqle) {
 			System.out.println("Pb select" + sqle.getMessage());
@@ -106,12 +107,12 @@ public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 		ArrayList<Categorie> CatList = new ArrayList<>();
 		try {
 			Statement requete = Connexion();
-			ResultSet res = requete.executeQuery("SELECT * FROM Categorie");
+			ResultSet res = requete.executeQuery("SELECT * FROM Client");
 			while (res.next()) {
 				Categorie Cat = new Categorie();
-		        Cat.setId_categ(res.getInt("id_categorie"));
-		        Cat.setTitre_categ(res.getString("titre"));
-		        Cat.setVisuel_categ(res.getString("visuel"));
+		        Cat.setId(res.getInt("id_categorie"));
+		        Cat.setTitre(res.getString("titre"));
+		        Cat.setVisuel(res.getString("visuel"));
 		        CatList.add(Cat);
 			}
 		}catch(SQLException sqle) {

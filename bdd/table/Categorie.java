@@ -4,40 +4,59 @@ import java.util.List;
 
 public class Categorie {
 	
-	private int id_categ;
-	private String titre_categ;
-	private String visuel_categ;
+	private int id;
+	private String titre;
+	private String visuel;
 	private List<Produit> produits;
+
+
+	public Categorie(int id_categ, String titre_categ, String visuel_categ) {
+		super();
+		this.id = id_categ;
+		this.titre = titre_categ;
+		this.visuel = visuel_categ;
+	}
 
 	public Categorie() {
 		super();
 	}
 
+
+
 	public String toString() {
-		return "ID: " + id_categ + ", Titre: " + titre_categ + ", Visuel:" + visuel_categ;
+		return "ID: " + id + ", Titre: " + titre + ", Visuel:" + visuel;
 	}
 
-	public int getId_categ() {
-		return id_categ;
+	public int getId() {
+		return id;
 	}
 
-	public void setId_categ(int id_categ) {
-		this.id_categ = id_categ;
+	public void setId(int id_categ) {
+		this.id = id_categ;
 	}
 
-	public String getTitre_categ() {
-		return titre_categ;
+	public String getTitre() {
+		return titre;
 	}
 
-	public void setTitre_categ(String titre_categ) {
-		this.titre_categ = titre_categ;
+	public void setTitre(String titre_categ) {
+		this.titre = titre_categ;
 	}
 
-	public String getVisuel_categ() {
-		return visuel_categ;
+	public String getVisuel() {
+		return visuel;
 	}
 
-	public void setVisuel_categ(String visuel_categ) {
-		this.visuel_categ = visuel_categ;
+	public void setVisuel(String visuel_categ) {
+		this.visuel = visuel_categ;
 	}
+
+	public List<Produit> getProduits() {
+		return produits;
+	}
+
+	public void setProduits(List<Produit> produits) {
+		this.produits = produits;
+	}
+	
 }

@@ -1,4 +1,4 @@
-package DAO;
+package dao.interfaces;
 
 import bdd.table.Categorie;
 

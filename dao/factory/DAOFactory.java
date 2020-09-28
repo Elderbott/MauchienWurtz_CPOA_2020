@@ -1,4 +1,9 @@
-package DAO;
+package dao.factory;
+
+import bdd.table.Categorie;
+import bdd.table.Client;
+import dao.interfaces.CategorieDAO;
+import dao.interfaces.ClientDAO;
 
 public abstract class DAOFactory {
 	
@@ -15,6 +20,7 @@ public abstract class DAOFactory {
 		return daoF;
 	}
 		
-	public abstract CategorieDAO getCategorieDAO();
+	public abstract CategorieDAO<Categorie> getCategorieDAO();
+	public abstract ClientDAO<Client> getClientDAO();
 
 }
