@@ -21,8 +21,6 @@ public class Categorie {
 		super();
 	}
 
-
-
 	public String toString() {
 		return "ID: " + id + ", Titre: " + titre + ", Visuel:" + visuel;
 	}

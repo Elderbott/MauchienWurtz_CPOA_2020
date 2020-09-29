@@ -15,7 +15,7 @@ public class Produit {
 	private String description;
 	private double tarif;
 	private String visuel;
-	private Categorie categorie;
+	private Categorie categorie;	
 	
 	public String toString() {
 		return "ID Produit: " + id + ", Nom: " + nom + ", Description: " + description + ", Tarif: "
