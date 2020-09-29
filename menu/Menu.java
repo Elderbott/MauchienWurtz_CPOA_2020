@@ -1,12 +1,13 @@
 package menu;
 import java.util.Scanner;
 
-import bdd.table.Categorie;
-import bdd.table.Client;
-import bdd.table.Produit;
+import metier.Categorie;
+import metier.Client;
+import metier.Produit;
 
 public class Menu {
 
+	/*
 	Scanner sc1 = new Scanner( System.in );
 	private int Choix,retour;
 	private boolean modif=true;
@@ -97,5 +98,6 @@ public class Menu {
 
 }
 }
+*/
 }
 

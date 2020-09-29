@@ -3,8 +3,8 @@ package dao.liste_memoire;
 import java.util.ArrayList;
 import java.util.List;
 
-import bdd.table.Client;
 import dao.interfaces.ClientDAO;
+import metier.Client;
 
 public class ListeMemoireClientDAO implements ClientDAO<Client> {
 

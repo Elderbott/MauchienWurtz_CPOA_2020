@@ -1,9 +1,9 @@
 package dao.factory;
 
-import bdd.table.Categorie;
-import bdd.table.Client;
 import dao.interfaces.CategorieDAO;
 import dao.interfaces.ClientDAO;
+import metier.Categorie;
+import metier.Client;
 
 public abstract class DAOFactory {
 	

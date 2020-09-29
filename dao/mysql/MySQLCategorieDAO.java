@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import bdd.table.Categorie;
 import dao.connexion.Connexion;
 import dao.interfaces.CategorieDAO;
+import metier.Categorie;
 
 public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 	

@@ -3,8 +3,8 @@ package dao.liste_memoire;
 import java.util.ArrayList;
 import java.util.List;
 
-import bdd.table.Categorie;
 import dao.interfaces.CategorieDAO;
+import metier.Categorie;
 
 public class ListeMemoireCategorieDAO implements CategorieDAO<Categorie> {
 

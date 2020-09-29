@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import bdd.table.Client;
+import metier.Client;
 
 public interface ClientDAO<T> extends DAO<T> {
 	public abstract Client getByNom(String nom);

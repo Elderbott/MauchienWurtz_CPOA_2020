@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 import com.sun.tools.javac.parser.Scanner;
 
-import bdd.table.Categorie;
 import dao.factory.DAOFactory;
 import dao.factory.Persistance;
+import metier.Categorie;
 
 public class TestCategorie {
 	public static void main(String[] args) {

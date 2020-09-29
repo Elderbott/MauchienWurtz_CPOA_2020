@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
-import bdd.table.Client;
-
 import dao.factory.DAOFactory;
 import dao.factory.Persistance;
+import metier.Client;
 
 public class TestClient {
 

@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import bdd.table.Client;
 import dao.connexion.Connexion;
 import dao.interfaces.ClientDAO;
+import metier.Client;
 
 public class MySQLClientDAO implements ClientDAO<Client> {
 	

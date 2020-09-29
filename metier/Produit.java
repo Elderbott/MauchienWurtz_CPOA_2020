@@ -1,12 +1,4 @@
-package bdd.table;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import dao.connexion.Connexion;
+package metier;
 
 public class Produit {
 
@@ -15,13 +7,12 @@ public class Produit {
 	private String description;
 	private double tarif;
 	private String visuel;
-	private Categorie categorie;	
+	private Categorie categorie;
 	
-	public String toString() {
-		return "ID Produit: " + id + ", Nom: " + nom + ", Description: " + description + ", Tarif: "
-				+ tarif + ", Visuel: " + visuel + ", ID Categorie: " + categorie;
+	public Produit() {
+		super();
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -69,7 +60,16 @@ public class Produit {
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
+
+	@Override
+	public String toString() {
+		return "Produit [id=" + id + ", nom=" + nom + ", description=" + description + ", tarif=" + tarif + ", visuel="
+				+ visuel + ", categorie=" + categorie + "]";
+	}	
 	
+	
+	
+	/*
 	public Statement Connexion() throws SQLException {
 		Connexion co = new Connexion();
 		Connection laConnexion =  co.creeConnexion();
@@ -163,7 +163,7 @@ public class Produit {
 		        Prod2.setDescription(res.getString("description"));
 		        Prod2.setTarif(res.getDouble("tarif"));
 		        Prod2.setVisuel(res.getString("visuel"));
-		        Prod2.setCategorie(res.("id_categorie"));
+		        Prod2.setCategorie(res.GetInt("id_categorie"));
 		        Prod1.add(Prod2);
 			}
 			for (Produit obj : Prod1) {
@@ -174,4 +174,5 @@ public class Produit {
 			System.out.println("Pb select" + sqle.getMessage());
 			 } 
 	}
+	*/
 }
