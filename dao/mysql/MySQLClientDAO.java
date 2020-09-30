@@ -105,36 +105,40 @@ public class MySQLClientDAO implements ClientDAO<Client> {
 	}
 
 	@Override
-	public Client getByNom(String nom) {
-		Client Cl = new Client();
+	public ArrayList<Client> getByNom(String nom) {
+		ArrayList<Client> ClList = new ArrayList<>();	
 		try {
 			Statement requete = Connexion();
 			ResultSet res = requete.executeQuery("SELECT * FROM Client WHERE nom = "+nom);
 			while (res.next()) {
+				Client Cl = new Client();
 		        Cl.setId(res.getInt("id_client"));
 		        Cl.setNom(res.getString("nom"));
 		        Cl.setPrenom(res.getString("prenom"));
+		        ClList.add(Cl);
 			}
 		}catch(SQLException sqle) {
 			System.out.println("Pb select" + sqle.getMessage());
 		}
-		return Cl;
+		return ClList;
 	}
 
 	@Override
-	public Client getByPrenom(String prenom) {
-		Client Cl = new Client();
+	public ArrayList<Client> getByPrenom(String prenom) {
+		ArrayList<Client> ClList = new ArrayList<>();
 		try {
 			Statement requete = Connexion();
 			ResultSet res = requete.executeQuery("SELECT * FROM Client WHERE prenom = "+prenom);
 			while (res.next()) {
+				Client Cl = new Client();
 		        Cl.setId(res.getInt("id_client"));
 		        Cl.setNom(res.getString("nom"));
 		        Cl.setPrenom(res.getString("prenom"));
+		        ClList.add(Cl);
 			}
 		}catch(SQLException sqle) {
 			System.out.println("Pb select" + sqle.getMessage());
 		}
-		return Cl;
+		return ClList;
 	}
 }

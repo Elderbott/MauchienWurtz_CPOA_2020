@@ -27,6 +27,7 @@ public class ListeMemoireClientDAO implements ClientDAO<Client> {
 		cl1.setPrenom("Pierre");
 		this.donnees.add(cl1);
 	}
+	
 	@Override
 	public Client getById(int id) {
 		if (this.donnees != null && !this.donnees.isEmpty()) {
@@ -82,25 +83,29 @@ public class ListeMemoireClientDAO implements ClientDAO<Client> {
 	}
 
 	@Override
-	public Client getByNom(String nom) {
+	public ArrayList<Client> getByNom(String nom) {
+		ArrayList<Client> ClList = new ArrayList<>();
 		if (this.donnees != null && !this.donnees.isEmpty()) {
 			for (Client clients : this.donnees) {
 				if (clients.getNom() == nom) {
-					return clients;
+					ClList.add(clients);
 				}
 			}
+			return ClList;
 		}
 		return null;
 	}
 
 	@Override
-	public Client getByPrenom(String prenom) {
+	public ArrayList<Client> getByPrenom(String prenom) {
+		ArrayList<Client> ClList = new ArrayList<>();
 		if (this.donnees != null && !this.donnees.isEmpty()) {
 			for (Client clients : this.donnees) {
 				if (clients.getPrenom() == prenom) {
-					return clients;
+					ClList.add(clients);
 				}
 			}
+			return ClList;
 		}
 		return null;
 	}

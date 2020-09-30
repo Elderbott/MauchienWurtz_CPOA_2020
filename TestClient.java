@@ -11,17 +11,17 @@ public class TestClient {
 				DAOFactory daos = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
 			
 				//LISTE_MEMOIRE
-				//Create
+				/*Create
 				Client cl = new Client();
 				cl.setNom("MAUCHIEN");
 				cl.setPrenom("Thomas");
 				boolean bool1 = daos.getClientDAO().create(cl);
-				//
+				*/
 				
-				//GetAll
+				/*GetAll
 				ArrayList<Client> cl1 = daos.getClientDAO().getAll();
 				System.out.println(cl1);
-				//
+				*/
 				
 				/*Delete
 				Client cl5 = new Client();
@@ -37,20 +37,20 @@ public class TestClient {
 				boolean bool6 = daos.getClientDAO().update(cl6);
 				*/
 				
-				//getByNom
+				/*getByNom
 				Client cl2 = daos.getClientDAO().getByNom("MAUCHIEN");
 				System.out.println(cl2);
-				//
+				*/
 				
-				//getById
+				/*getById
 				Client cl3 = daos.getClientDAO().getById(2);
 				System.out.println(cl3);
-				//
+				*/
 				
-				//getByPreom
-				Client cl4 = daos.getClientDAO().getByPrenom("Thomas");
+				/*getByPrenom
+				ArrayList<Client> cl4 = daos.getClientDAO().getByPrenom("Thomas");
 				System.out.println(cl4);
-				//
+				*/
 				
 				
 				
