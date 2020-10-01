@@ -1,22 +1,28 @@
 package metier;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map.Entry;
+import java.util.Map;
 
 public class Commande {
 
 	private int num;
 	private Date date;
 	private Client client; 
-	private HashMap<Produit, Integer> produits;
+	private Map<Produit, Integer> produits;
 	
 	public Commande() {
 		super();
 	}
 	
+	public Commande(int num, Date date, Client client) {
+		super();
+		this.num = num;
+		this.date = date;
+		this.client = client;
+	}
+
 	public Double getMontantTotal() {
 		Double resultat = 0d;
-		for (Entry<Produit, Integer> entry : produits.entrySet()) {
+		for (Map.Entry<Produit, Integer> entry : produits.entrySet()) {
 			Produit produit = entry.getKey();
 			Integer quantite = entry.getValue();
 			resultat += (produit.getTarif() * quantite);
@@ -48,17 +54,17 @@ public class Commande {
 		this.client = client;
 	}
 
-	public HashMap<Produit, Integer> getProduits() {
+	public Map<Produit, Integer> getProduits() {
 		return produits;
 	}
 
-	public void setProduits(HashMap<Produit, Integer> produits) {
+	public void setProduits(Map<Produit, Integer> produits) {
 		this.produits = produits;
 	}
 
 	@Override
 	public String toString() {
-		return "Commande [num=" + num + ", date=" + date + ", client=" + client + ", montant total="+getMontantTotal()+"]";
+		return "Commande [num=" + num + ", date=" + date + ", client=" + client.getId() + ", montant total="+getMontantTotal()+"]";
 	}
 	
 	

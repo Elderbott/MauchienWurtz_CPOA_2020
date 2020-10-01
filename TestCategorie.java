@@ -8,8 +8,9 @@ import metier.Categorie;
 
 public class TestCategorie {
 	public static void main(String[] args) {
-		//DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
-		DAOFactory daos = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
+		
+		DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
+		//DAOFactory daos = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
 	
 		//LISTE_MEMOIRE
 		/*Create
@@ -77,11 +78,12 @@ public class TestCategorie {
 		System.out.println(cat1);
 		*/
 		
-		/*GetAll
+		//GetAll
 		ArrayList<Categorie> cat1 = daos.getCategorieDAO().getAll();
-		for (Categorie obj : cat1) {
-			System.out.println(obj);
-		}*/
+		System.out.println(cat1);
+		//for(Categorie obj : cat1) {
+			
+		//}
 
 	}
 }

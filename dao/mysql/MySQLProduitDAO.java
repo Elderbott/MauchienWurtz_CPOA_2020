@@ -34,8 +34,25 @@ public class MySQLProduitDAO implements ProduitDAO<Produit> {
 
 	@Override
 	public Produit getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Produit Prod2 = new Produit();
+		try {
+			Statement requete = Connexion();
+			ResultSet res = requete.executeQuery("SELECT * FROM Produit WHERE nom = '"+id+"'");
+			
+			while (res.next()) {
+		        Prod2.setId(res.getInt("id_produit"));
+		        Prod2.setNom(res.getString("nom"));
+		        Prod2.setDescription(res.getString("description"));
+		        Prod2.setTarif(res.getDouble("tarif"));
+		        Prod2.setVisuel(res.getString("visuel"));
+		        Categorie cat1 = new Categorie();
+		        cat1.setId(res.getInt("id_categorie"));
+		        Prod2.setCategorie(cat1);
+			}
+		} catch (SQLException sqle) {
+			System.out.println("Pb select" + sqle.getMessage());
+		}
+		return Prod2;
 	}
 
 	@Override

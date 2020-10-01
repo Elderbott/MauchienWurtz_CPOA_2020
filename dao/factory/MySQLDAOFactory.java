@@ -32,7 +32,7 @@ public class MySQLDAOFactory extends DAOFactory {
 	}
 
 	@Override
-	public CommandeDAO<Commande> getCommande() {
+	public CommandeDAO<Commande> getCommandeDAO() {
 		return MySQLCommandeDAO.getInstance();
 	}
 	

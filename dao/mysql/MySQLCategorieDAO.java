@@ -107,7 +107,7 @@ public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 		ArrayList<Categorie> CatList = new ArrayList<>();
 		try {
 			Statement requete = Connexion();
-			ResultSet res = requete.executeQuery("SELECT * FROM Client");
+			ResultSet res = requete.executeQuery("SELECT * FROM Categorie");
 			while (res.next()) {
 				Categorie Cat = new Categorie();
 		        Cat.setId(res.getInt("id_categorie"));
@@ -120,5 +120,4 @@ public class MySQLCategorieDAO implements CategorieDAO<Categorie> {
 		}
 		return CatList;
 	}
-
 }
