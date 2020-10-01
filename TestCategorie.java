@@ -26,7 +26,7 @@ public class TestCategorie {
 		*/
 		
 		/*Delete
-		Categorie cat2 = new Categorie();
+		Categorie cat = new Categorie();
 		cat.setId(3);
 		boolean bool2 = daos.getCategorieDAO().delete(cat);
 		*/
@@ -81,9 +81,12 @@ public class TestCategorie {
 		//GetAll
 		ArrayList<Categorie> cat1 = daos.getCategorieDAO().getAll();
 		System.out.println(cat1);
-		//for(Categorie obj : cat1) {
-			
-		//}
+		//
+		
+		//getById
+		Categorie cat3 = daos.getCategorieDAO().getById(2);
+		System.out.println(cat3);
+		//
 
 	}
 }

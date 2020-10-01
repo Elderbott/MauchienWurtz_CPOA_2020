@@ -19,8 +19,8 @@ public class MySQLProduitDAO implements ProduitDAO<Produit> {
 	private MySQLProduitDAO() {}
 	
 	public static MySQLProduitDAO getInstance() {
-	if (instance==null) {
-	instance = new MySQLProduitDAO();
+		if (instance==null) {
+			instance = new MySQLProduitDAO();
 	}
 	return instance;
 	}
@@ -35,18 +35,17 @@ public class MySQLProduitDAO implements ProduitDAO<Produit> {
 	@Override
 	public Produit getById(int id) {
 		Produit Prod2 = new Produit();
+		DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 		try {
 			Statement requete = Connexion();
-			ResultSet res = requete.executeQuery("SELECT * FROM Produit WHERE nom = '"+id+"'");
-			
+			ResultSet res = requete.executeQuery("SELECT * FROM Produit WHERE id_produit = '"+id+"'");
 			while (res.next()) {
 		        Prod2.setId(res.getInt("id_produit"));
 		        Prod2.setNom(res.getString("nom"));
 		        Prod2.setDescription(res.getString("description"));
 		        Prod2.setTarif(res.getDouble("tarif"));
 		        Prod2.setVisuel(res.getString("visuel"));
-		        Categorie cat1 = new Categorie();
-		        cat1.setId(res.getInt("id_categorie"));
+		        Categorie cat1 = daos.getCategorieDAO().getById(res.getInt("id_categorie"));
 		        Prod2.setCategorie(cat1);
 			}
 		} catch (SQLException sqle) {
@@ -101,6 +100,7 @@ public class MySQLProduitDAO implements ProduitDAO<Produit> {
 	@Override
 	public ArrayList<Produit> getAll() {
 		ArrayList<Produit> Prod1 = new ArrayList<>();
+		DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 		try {
 			Statement requete = Connexion();
 			ResultSet res = requete.executeQuery("SELECT * FROM Produit");
@@ -112,8 +112,7 @@ public class MySQLProduitDAO implements ProduitDAO<Produit> {
 		        Prod2.setDescription(res.getString("description"));
 		        Prod2.setTarif(res.getDouble("tarif"));
 		        Prod2.setVisuel(res.getString("visuel"));
-		        Categorie cat1 = new Categorie();
-		        cat1.setId(res.getInt("id_categorie"));
+		        Categorie cat1 = daos.getCategorieDAO().getById(res.getInt("id_categorie"));
 		        Prod2.setCategorie(cat1);
 		        Prod1.add(Prod2);
 			}
@@ -126,6 +125,7 @@ public class MySQLProduitDAO implements ProduitDAO<Produit> {
 	@Override
 	public Produit getByNom(String nom) {
 		Produit Prod2 = new Produit();
+		DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 		try {
 			Statement requete = Connexion();
 			ResultSet res = requete.executeQuery("SELECT * FROM Produit WHERE nom = '"+nom+"'");
@@ -136,8 +136,7 @@ public class MySQLProduitDAO implements ProduitDAO<Produit> {
 		        Prod2.setDescription(res.getString("description"));
 		        Prod2.setTarif(res.getDouble("tarif"));
 		        Prod2.setVisuel(res.getString("visuel"));
-		        Categorie cat1 = new Categorie();
-		        cat1.setId(res.getInt("id_categorie"));
+		        Categorie cat1 = daos.getCategorieDAO().getById(res.getInt("id_categorie"));
 		        Prod2.setCategorie(cat1);
 			}
 		} catch (SQLException sqle) {

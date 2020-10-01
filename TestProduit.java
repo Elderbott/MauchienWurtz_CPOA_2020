@@ -8,7 +8,7 @@ import metier.Produit;
 public class TestProduit {
 
 	public static void main(String[] args) {
-		//DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
+		DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 		//DAOFactory daos = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
 		
 		//ListeMemoire
@@ -95,16 +95,21 @@ public class TestProduit {
 		System.out.println(prod3);
 		*/
 		
-		/*GetByNom
+		//GetByNom
 		Produit prod2 = daos.getProduitDAO().getByNom("Sonic te kiffe");
 		System.out.println(prod2);
-		*/
+		//
 		
-		/*GetAll
+		//GetById
+		Produit prod3 = daos.getProduitDAO().getById(2);
+		System.out.println(prod3);
+		//
+		
+		//GetAll
 		ArrayList<Produit> prod1 = daos.getProduitDAO().getAll();
 		for (Produit obj : prod1) {
 			System.out.println(obj);
 		}
-		*/
+		//
 	}
 }
