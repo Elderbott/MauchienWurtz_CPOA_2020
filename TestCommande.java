@@ -9,9 +9,19 @@ import metier.Commande;
 public class TestCommande {
 public static void main(String[] args) {
 		
-		DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
-		//DAOFactory daos = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
+		//DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
+		DAOFactory daos = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
 		
+		//ListeMemoire
+		
+		//GetAll
+		ArrayList<Commande> cm = daos.getCommandeDAO().getAll();
+		System.out.println(cm);
+		//
+		
+		
+		
+		//MySQL
 		/*GetAll
 		ArrayList<Commande> com = daos.getCommandeDAO().getAll();
 		for (Commande obj : com) {

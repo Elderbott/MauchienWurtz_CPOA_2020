@@ -5,6 +5,7 @@ import java.util.List;
 
 import dao.interfaces.CategorieDAO;
 import metier.Categorie;
+import metier.Produit;
 
 public class ListeMemoireCategorieDAO implements CategorieDAO<Categorie> {
 
@@ -52,25 +53,27 @@ public class ListeMemoireCategorieDAO implements CategorieDAO<Categorie> {
 
 	@Override
 	public boolean update(Categorie objet) {
-		int idx = this.donnees.indexOf(objet);
-		if (idx == -1) {
-			throw new IllegalArgumentException("Tentative de modification d'une categorie inexistante");
-		} 
-		else {			
-			this.donnees.set(idx, objet);
-		}		
+		int id = objet.getId();
+		if (this.donnees != null && !this.donnees.isEmpty()) {
+			for (Categorie categories : this.donnees) {
+				if (categories.getId() == id) {
+					this.donnees.set(id, objet);
+				}
+			}
+		}
 		return true;
 	}
 
 	@Override
 	public boolean delete(Categorie objet) {
-		Categorie supprime;
-		int idx = this.donnees.indexOf(objet);
-		if (idx == -1) {
-			throw new IllegalArgumentException("Tentative de suppression d'une categorie inexistante");
-		} 
-		else {
-			supprime = this.donnees.remove(idx);
+		Categorie supprime = null;
+		int id = objet.getId();
+		if (this.donnees != null && !this.donnees.isEmpty()) {
+			for (Categorie categories : this.donnees) {
+				if (categories.getId() == id) {
+					supprime = this.donnees.remove(id);
+				}
+			}
 		}
 		return objet.equals(supprime);
 	}

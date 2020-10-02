@@ -90,10 +90,10 @@ public class MySQLClientDAO implements ClientDAO<Client> {
 		ArrayList<Client> ClList = new ArrayList<>();
 		try {
 			Statement requete = Connexion();
-			ResultSet res = requete.executeQuery("SELECT * FROM Categorie");
+			ResultSet res = requete.executeQuery("SELECT * FROM Client");
 			while (res.next()) {
 				Client Cl = new Client();
-		        Cl.setId(res.getInt("id_categorie"));
+		        Cl.setId(res.getInt("id_client"));
 		        Cl.setNom(res.getString("nom"));
 		        Cl.setPrenom(res.getString("prenom"));
 		        ClList.add(Cl);
@@ -109,7 +109,7 @@ public class MySQLClientDAO implements ClientDAO<Client> {
 		ArrayList<Client> ClList = new ArrayList<>();	
 		try {
 			Statement requete = Connexion();
-			ResultSet res = requete.executeQuery("SELECT * FROM Client WHERE nom = "+nom);
+			ResultSet res = requete.executeQuery("SELECT * FROM Client WHERE nom = '"+nom+"'");
 			while (res.next()) {
 				Client Cl = new Client();
 		        Cl.setId(res.getInt("id_client"));
@@ -128,7 +128,7 @@ public class MySQLClientDAO implements ClientDAO<Client> {
 		ArrayList<Client> ClList = new ArrayList<>();
 		try {
 			Statement requete = Connexion();
-			ResultSet res = requete.executeQuery("SELECT * FROM Client WHERE prenom = "+prenom);
+			ResultSet res = requete.executeQuery("SELECT * FROM Client WHERE prenom = '"+prenom+"'");
 			while (res.next()) {
 				Client Cl = new Client();
 		        Cl.setId(res.getInt("id_client"));

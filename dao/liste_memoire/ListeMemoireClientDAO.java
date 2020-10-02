@@ -5,6 +5,7 @@ import java.util.List;
 
 import dao.interfaces.ClientDAO;
 import metier.Client;
+import metier.Produit;
 
 public class ListeMemoireClientDAO implements ClientDAO<Client> {
 
@@ -54,25 +55,27 @@ public class ListeMemoireClientDAO implements ClientDAO<Client> {
 
 	@Override
 	public boolean update(Client objet) {
-		int idx = this.donnees.indexOf(objet);
-		if (idx == -1) {
-			throw new IllegalArgumentException("Tentative de modification d'un client inexistant");
-		} 
-		else {			
-			this.donnees.set(idx, objet);
-		}		
+		int id = objet.getId();
+		if (this.donnees != null && !this.donnees.isEmpty()) {
+			for (Client clients : this.donnees) {
+				if (clients.getId() == id) {
+					this.donnees.set(id, objet);
+				}
+			}
+		}
 		return true;
 	}
 
 	@Override
 	public boolean delete(Client objet) {
-		Client supprime;
-		int idx = this.donnees.indexOf(objet);
-		if (idx == -1) {
-			throw new IllegalArgumentException("Tentative de suppression d'un client inexistant");
-		} 
-		else {
-			supprime = this.donnees.remove(idx);
+		Client supprime = null;
+		int id = objet.getId();
+		if (this.donnees != null && !this.donnees.isEmpty()) {
+			for (Client clients : this.donnees) {
+				if (clients.getId() == id) {
+					supprime = this.donnees.remove(id);
+				}
+			}
 		}
 		return objet.equals(supprime);
 	}

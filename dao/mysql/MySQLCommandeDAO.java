@@ -87,7 +87,7 @@ public class MySQLCommandeDAO implements CommandeDAO<Commande>{
 			} catch (SQLException sqle) {
 				System.out.println("Pb select" + sqle.getMessage());
 			}
-			System.out.println("Selectionner un produit:");
+			System.out.println("Selectionner un id de produit:");
 			int prod1 = sc1.nextInt();
 			Produit prod2 = daos.getProduitDAO().getById(prod1);
 			System.out.println("Selectionner sa quantité:");

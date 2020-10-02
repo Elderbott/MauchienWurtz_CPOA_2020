@@ -75,7 +75,7 @@ public class MySQLProduitDAO implements ProduitDAO<Produit> {
 		try {
 			Statement requete = Connexion();
 			DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
-			Categorie cat1 = daos.getCategorieDAO().getByTitre(objet.getCategorie().getTitre());
+			Categorie cat1 = daos.getCategorieDAO().getById(objet.getCategorie().getId());
 			requete.executeUpdate("UPDATE Produit SET nom = '"+objet.getNom()+"', description ='"+objet.getDescription()+"', tarif = '"+objet.getTarif()+"', visuel ='"+objet.getVisuel()+"', id_categorie = '"+cat1.getId()+"'WHERE id_produit ="+objet.getId());
 			verif = true;
 			 } catch (SQLException sqle) {

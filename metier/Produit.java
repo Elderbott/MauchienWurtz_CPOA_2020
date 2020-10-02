@@ -76,6 +76,6 @@ public class Produit {
 	@Override
 	public String toString() {
 		return "Produit [id=" + id + ", nom=" + nom + ", description=" + description + ", tarif=" + tarif + ", visuel="
-				+ visuel + ", categorie=" + categorie.getTitre() + "]";
+				+ visuel + ", categorie=" + categorie.getId() + "]";
 	}	
 }

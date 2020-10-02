@@ -32,7 +32,7 @@ public class ListeMemoireDAOFactory extends DAOFactory {
 	}
 
 	@Override
-	public CommandeDAO<Commande> getCommande() {
+	public CommandeDAO<Commande> getCommandeDAO() {
 		return ListeMemoireCommandeDAO.getInstance();
 	}
 }
