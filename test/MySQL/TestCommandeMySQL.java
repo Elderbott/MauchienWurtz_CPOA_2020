@@ -9,7 +9,7 @@ import dao.factory.Persistance;
 import metier.Client;
 import metier.Commande;
 
-class TestCommandeSQL {
+class TestCommandeMySQL {
 
 	DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 	@Test

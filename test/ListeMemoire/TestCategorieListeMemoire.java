@@ -24,16 +24,15 @@ class TestCategorieListeMemoire {
 		@Test
 		public void testupdateCategorie() {
 			Categorie categ = new Categorie();
-	        categ.setTitre("Un titre");
+	        categ.setTitre("Untitre");
 	        categ.setVisuel("visuel");
 	        daoLM.getCategorieDAO().create(categ);
 	        Categorie categ1 = daoLM.getCategorieDAO().getById(categ.getId());
 	        assertEquals(categ, categ1);
-	        categ1.setTitre("Un second Titre");
+	        categ1.setTitre("Un");
 	        daoLM.getCategorieDAO().update(categ);
 	        Categorie categ2 = daoLM.getCategorieDAO().getById(categ1.getId());
 	        assertNotNull(categ2);
-			
 		}
 		
 		@Test

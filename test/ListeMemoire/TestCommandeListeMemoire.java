@@ -11,7 +11,7 @@ import metier.Commande;
 
 class TestCommandeListeMemoire {
 
-	DAOFactory daoLM = DAOFactory.getDAOFactory(Persistance.MYSQL);
+	DAOFactory daoLM = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
 	@Test
 	public void testCommandeGetById() {
 		assertNotNull(daoLM.getCommandeDAO().getById(1));

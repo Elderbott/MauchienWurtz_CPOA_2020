@@ -8,7 +8,7 @@ import dao.factory.DAOFactory;
 import dao.factory.Persistance;
 import metier.Categorie;
 
-class TestCategorieSQL {
+class TestCategorieMySQL {
 	
 	DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 
@@ -20,7 +20,7 @@ class TestCategorieSQL {
 		int size = daos.getCategorieDAO().getAll().size();
 		assertTrue(daos.getCategorieDAO().create(categ));
 		//on verifie qu'il existe un nouveau produit
-		assertEquals(size + 1, daos.getProduitDAO().getAll().size());
+		assertEquals(size + 1, daos.getCategorieDAO().getAll().size());
 		
 	}
 	

@@ -2,14 +2,11 @@ package dao.liste_memoire;
 
 
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import dao.factory.DAOFactory;
-import dao.factory.Persistance;
 import dao.interfaces.CommandeDAO;
 
 import metier.Client;

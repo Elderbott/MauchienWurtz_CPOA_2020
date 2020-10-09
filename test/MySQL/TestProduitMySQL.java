@@ -9,7 +9,7 @@ import dao.factory.Persistance;
 import metier.Categorie;
 import metier.Produit;
 
-class TestProduitSQL{
+class TestProduitMySQL{
 
 	DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 
@@ -50,6 +50,8 @@ class TestProduitSQL{
 	public void testdeleteProduit() {
 	//lecture du produit
 	Produit prod = daos.getProduitDAO().getById(62);
+	Categorie categ = new Categorie(6,"categorie","categvisuel");
+	prod.setCategorie(categ);
 	Produit prod1 = new Produit();
 	prod1.setCategorie(prod.getCategorie());
 	prod1.setDescription(prod.getDescription());

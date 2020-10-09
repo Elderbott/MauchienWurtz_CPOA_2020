@@ -8,7 +8,7 @@ import dao.factory.DAOFactory;
 import dao.factory.Persistance;
 import metier.Client;
 
-class TestClientSQL {
+class TestClientMySQL {
 	DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 	@Test
 	public void testClientGetById() {
