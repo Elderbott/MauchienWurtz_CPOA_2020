@@ -56,7 +56,7 @@ public class ListeMemoireProduitDAO implements ProduitDAO<Produit> {
 
 	@Override
 	public boolean create(Produit objet) {
-		objet.setId(3);
+		objet.setId(4);
 		while (this.donnees.contains(objet)) {
 
 			objet.setId(objet.getId() + 1);

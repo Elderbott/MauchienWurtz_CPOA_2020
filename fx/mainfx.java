@@ -1,6 +1,7 @@
 package fx;
 
 import javafx.application.Application;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,8 +12,8 @@ public class mainfx extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Ma premiÃ¨re fenÃªtre en Java");
-        primaryStage.setScene(new Scene(root, 600, 375));
+        primaryStage.setTitle("Ma première fenêtre en Java");
+        primaryStage.setScene(new Scene(root, 500, 360));
         primaryStage.show();
     }
 
@@ -20,4 +21,5 @@ public class mainfx extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
 }

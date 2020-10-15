@@ -22,7 +22,7 @@ public class Categorie {
 	}
 
 	public String toString() {
-		return "ID: " + id + ", Titre: " + titre + ", Visuel:" + visuel;
+		return titre;
 	}
 
 	public int getId() {
