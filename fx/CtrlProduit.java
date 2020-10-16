@@ -38,15 +38,15 @@ public class CtrlProduit implements Initializable {
 	@FXML
     private void createProduit(ActionEvent event) {
 		DAOFactory daoLM = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
-		if (this.txtNom.getText().isEmpty() || this.txtDesc.getText().isEmpty() || this.txtTarif.getText().isEmpty() || !this.txtTarif.getText().matches("[0-9]+") || cbxCateg.getSelectionModel().getSelectedItem() == null)
+		if (this.txtNom.getText().trim().isEmpty() || this.txtDesc.getText().trim().isEmpty() || this.txtTarif.getText().isEmpty() || !this.txtTarif.getText().trim().matches("[0-9]+") || cbxCateg.getSelectionModel().getSelectedItem() == null)
 			this.lblRes.setText("Champs invalides");
 		else {
-	        this.lblRes.setText(this.txtNom.getText()+" ("+cbxCateg.getSelectionModel().getSelectedItem()+"), "+this.txtTarif.getText()+" euros");
+	        this.lblRes.setText(this.txtNom.getText().trim()+" ("+cbxCateg.getSelectionModel().getSelectedItem()+"), "+this.txtTarif.getText().trim()+" euros");
 	        Produit pr = new Produit();
 	        Categorie obj = new Categorie();
-	        pr.setNom(this.txtNom.getText());
-	        pr.setDescription(this.txtDesc.getText());
-	        pr.setTarif(Double.parseDouble(this.txtTarif.getText()));
+	        pr.setNom(this.txtNom.getText().trim());
+	        pr.setDescription(this.txtDesc.getText().trim());
+	        pr.setTarif(Double.parseDouble(this.txtTarif.getText().trim()));
 	        pr.setCategorie(cbxCateg.getSelectionModel().getSelectedItem());
 	        pr.setVisuel(" ");
 			boolean bool = daoLM.getProduitDAO().create(pr);
