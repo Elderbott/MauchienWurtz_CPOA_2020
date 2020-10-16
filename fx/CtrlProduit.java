@@ -48,6 +48,7 @@ public class CtrlProduit implements Initializable {
 	        pr.setDescription(this.txtDesc.getText());
 	        pr.setTarif(Double.parseDouble(this.txtTarif.getText()));
 	        pr.setCategorie(cbxCateg.getSelectionModel().getSelectedItem());
+	        pr.setVisuel(" ");
 			boolean bool = daoLM.getProduitDAO().create(pr);
 		}
 	}
