@@ -13,7 +13,7 @@ public class mainfx extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Ma première fenêtre en Java");
-        primaryStage.setScene(new Scene(root, 500, 360));
+        primaryStage.setScene(new Scene(root, 520, 380));
         primaryStage.show();
     }
 
